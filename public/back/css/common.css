@@ -104,7 +104,6 @@ a:active {
   height: 1000px;
   padding-left: 180px;
   padding-top: 50px;
-  background-color: pink;
   transition: all 1s;
 }
 .lt_main.hidemenu {
@@ -130,6 +129,12 @@ a:active {
   text-align: center;
   color: #fff;
   font-size: 20px;
+}
+
+.lt_main .echarts_1,
+.lt_main .echarts_2{
+  width: 48%;
+  height: 400px;
 }
 
 /*路径导航*/
