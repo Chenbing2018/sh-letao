@@ -17,6 +17,7 @@ $(function () {
         pageSize: pageSize
       },
       success: function(info) {
+        console.log(info);
         var htmlStr = template('tmp', info);
         $('tbody').html(htmlStr);
         // 分页
