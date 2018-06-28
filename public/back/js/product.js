@@ -90,6 +90,9 @@ $(function () {
     // 将当前id 存下来
     var id = $(this).data('id');
     $('[name="brandId"]').val(id);
+
+    // 手动重置隐藏域校验状态
+    $('#form').data("bootstrapValidator").updateStatus("brandId", "VALID");
   })
 
   // 4.图片上传
@@ -199,8 +202,9 @@ $(function () {
     // 还需要拼接上图片的地址和名称
     // &picAddr1=xx&picName1=xx
     formData += '&picAddr1='+ picArr[0].picAddr +'&picName1='+ picArr[0].picName;
-    formData += '&picAddr2='+ picArr[2].picAddr +'&picName2='+ picArr[1].picName;
+    formData += '&picAddr2='+ picArr[1].picAddr +'&picName2='+ picArr[1].picName;
     formData += '&picAddr3='+ picArr[2].picAddr +'&picName3='+ picArr[2].picName;
+    console.log(formData);
     $.ajax({
       type: 'post',
       url: '/product/addProduct',
