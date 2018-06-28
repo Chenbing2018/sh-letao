@@ -23,6 +23,7 @@ $(function () {
         // 分页
         $('#paginator').bootstrapPaginator({
           bootstrapMajorVersion: 3,
+          size: 'large',
           totalPages: Math.ceil(info.total / info.size),
           currentPage: info.page,
           onPageClicked(a, b, c, page) {
