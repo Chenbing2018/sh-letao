@@ -43,12 +43,13 @@ $(function () {
   })
 
 
-  // 4.点击搜索按钮,获取输入框内容,将内容添加到历史记录中
+  // 4.点击搜索按钮,获取输入框内容,将内容添加到历史记录中,进行页面跳转
   $('.btn-search').click(function () {
 
     var txt = $('.input_search').val();
     // 内容为空不给添加
     if (txt == '') {
+      mui.toast('请输入搜索关键字');
       return;
     }
     var arr = getArr();
@@ -67,6 +68,9 @@ $(function () {
     render();
     // 清空输入框
     $('.input_search').val('');
+
+    // 跳转
+    location.href = 'searchList.html?txt=' + txt;
   })
 
 })

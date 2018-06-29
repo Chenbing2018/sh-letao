@@ -16,3 +16,18 @@ $(function () {
     interval: 5000//自动轮播周期，若为0则不自动播放，默认为0；
   });
 })
+
+// 从地址栏截取需要的数据
+function getNeed (need) {
+  var search = location.search;
+  search = decodeURI(search);
+  search = search.slice(1);
+  var arr = search.split('&');
+  var obj = {};
+  arr.forEach(function (v, i) {
+    var key = v.split('=')[0];
+    var value = v.split('=')[1];
+    obj[key] = value;
+  })
+  return obj[need];
+}

@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/searchList.css">
 
 </head>
 <body>
@@ -30,9 +30,16 @@
           <input class="input_search" type="text" placeholder="请输入提示信息">
           <button class="mui-btn mui-btn-primary btn-search">搜索</button>
         </div>
-        <!--历史记录-->
-        <div class="lt_history">
-          <!--大坑-->
+        <!--标题排序-->
+        <div class="lt_sort">
+          <a href="javascript:;">上架时间 <i class="fa fa-angle-down"></i></a>
+          <a date-type="price" href="javascript:;">价格 <i class="fa fa-angle-down"></i></a>
+          <a date-type="num" href="javascript:;">库存 <i class="fa fa-angle-down"></i></a>
+          <a href="javascript:;">折扣 <i class="fa fa-angle-down"></i></a>
+        </div>
+        <!--产品区域-->
+        <div class="lt_product">
+          <!--坑-->
         </div>
       </div>
     </div>
@@ -70,32 +77,28 @@
 </div>
 
 <!--模板-->
-<script type="text/html" id="historyTmp">
-  {{ if arr.length > 0 }}
-    <div class="head mui-clearfix">
-      <span class="mui-pull-left">搜索历史</span>
-      <span class="mui-pull-right btn-empty"><i class="fa fa-trash"></i>清除记录</span>
-    </div>
-    <div class="content">
-      <ul>
-
-        {{ each arr v i }}
-        <li>
-          <a href="#" class="mui-pull-left">{{ v }}</a>
-          <i data-index='{{ i }}' class="mui-icon mui-icon-closeempty mui-pull-right icon_delete"></i>
-        </li>
-        {{ /each }}
-
-      </ul>
-    </div>
-  {{ else }}
-    <p>没有更多搜索记录了</p>
-  {{ /if }}
+<script type="text/html" id="tmp">
+  <ul>
+    {{ each data v i }}
+      <li>
+        <a href="#">
+          <img src="{{ v.pic[0].picAddr }}" alt="">
+          <p class="mui-ellipsis-2">{{ v.proName }}</p>
+          <p>
+            <span>¥{{ v.price }}</span>
+            <span>¥{{ v.oldPrice }}</span>
+          </p>
+          <button class="mui-btn mui-btn-primary">立即购买</button>
+        </a>
+      </li>
+    {{ /each }}
+  </ul>
 </script>
+
 <script src="lib/mui/js/mui.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/search.js"></script>
+<script src="js/searchList.js"></script>
 </body>
 </html>
