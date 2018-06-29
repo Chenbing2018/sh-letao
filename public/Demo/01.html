@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var str = '?name=pp&age=18&desc=%E5%B8%85';
+  str = decodeURI(str);
+  str = str.slice(1);
+  var arr = str.split('&');
+  console.log(arr);
+
+  var obj = {};
+  arr.forEach(function (v, i) {
+    var key = v.split('=')[0];
+    var value = v.split('=')[1];
+    obj[key] = value;
+  })
+  console.log(obj);
+</script>
+</body>
+</html>
